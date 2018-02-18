@@ -11,7 +11,7 @@
 ### 安装
 
 ```shell
-git clone https://github.com/cucygh/JDFinance.git
+git clone git@github.com:CrixusZ/vue-jingdong.git
 cd JDFinance
 npm install
 ```
