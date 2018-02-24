@@ -1,28 +1,28 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const path = require("path")
+const webpack = require("webpack")
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const ExtractTextPlugin = require("extract-text-webpack-pluin")
 module.exports = env => {
-  if (!env) {
-    env = {}
-  }
-  let plugins=[
-    new CleanWebpackPlugin(['dist']),
-    new HtmlWebpackPlugin({template: './app/views/index.html'}),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
-  ];
-  if(env.production){
-    plugins.push(
-      new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: '"production"'
-        }
-      }),
-      new ExtractTextPlugin("style.css", {ignoreOrder: true})
-    )
-  }
+    if (!env) {
+      env = {}
+    }
+    let plugins=[
+      new CleanWebpackPlugin(['dist']),
+      new HtmlWebpackPlugin({template: './app/views/index.html'}),
+      new webpack.NamedModulesPlugin(),
+      new webpack.HotModuleReplacementPlugin()
+    ]
+    if (env.production){
+      plugins.push(
+        new webpack.DefinePlugin({
+          'process.env': {
+            NODE_ENV: '"production"'
+          }
+        }),
+        new ExtractTextPlugin("style.css", {ignoreOrder: true})
+      )
+    }
   return {
     entry: {
       app: './app/js/main.js'
@@ -77,4 +77,4 @@ module.exports = env => {
       path: path.resolve(__dirname, 'dist')
     }
   }
-};
+}
